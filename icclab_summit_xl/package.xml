@@ -112,10 +112,12 @@
   <exec_depend>navigation2</exec_depend>
   <exec_depend>nav2_bringup</exec_depend>
   <exec_depend>realsense2_description</exec_depend>
+  <exec_depend>pal_robotiq_description</exec_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <build_type>ament_cmake</build_type>
+    <gazebo_ros gazebo_model_path="/opt/ros/humble/share/"/> <!-- Added to find pal_robotiq_description package in urdf FIXME: remove hardcoded path, use ROSDISTRO if possible -->
   </export>
 
 </package>

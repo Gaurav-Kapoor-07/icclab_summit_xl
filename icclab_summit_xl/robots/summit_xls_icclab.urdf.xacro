@@ -26,7 +26,8 @@
 	<!-- Import and create arm -->
 	<xacro:include filename="$(find icclab_summit_xl)/urdf/arm/ur.urdf.xacro" />
 	<!-- Import gripper -->
-    <xacro:include filename="$(find icclab_summit_xl)/urdf/robotiq_gripper/robotiq_2f_85_macro.urdf.xacro" />
+    <xacro:include filename="$(find pal_robotiq_description)/urdf/robotiq_140_gripper.urdf.xacro" />
+	<xacro:include filename="$(find pal_robotiq_description)/urdf/robotiq.ros2_control.xacro" />
 
 	<xacro:property name="PI" value="3.1415926535897931"/>
 
@@ -70,7 +71,7 @@
 	<xacro:arg name="prefix" default=""/> <!-- was: summit_xl_-->
 	<xacro:arg name="ros_planar_move_plugin" default="true"/>
 	<xacro:arg name="gpu" default="false"/>
-	<xacro:arg name="robot_id" default="summit"/>
+	<xacro:arg name="robot_id" default="summit"/>robotiq_140_gripper
 	<xacro:arg name="robot_ns" default="$(arg robot_id)"/>
 
 
@@ -132,9 +133,15 @@
 			<origin xyz="${gps_offset_x} ${gps_offset_y} ${gps_offset_z}" rpy="0 0 0"/>
 		</xacro:sensor_gps-->
 
-		<xacro:robotiq_gripper name="RobotiqGripperHardwareInterface" prefix="" parent="arm_flange" use_fake_hardware="true">
+		<!-- <xacro:robotiq_140_gripper prefix="gripper_" parent="arm_flange">
         	<origin xyz="0 0 0" rpy="${-1/2*PI} 0 ${-1/2*PI}" />
-    	</xacro:robotiq_gripper>
+    	</xacro:robotiq_140_gripper> -->
+		<!-- <ros2_control name="robotiq_gripper_controller" type="system">
+			<hardware>
+			<plugin>gazebo_ros2_control/GazeboSystem</plugin>
+			</hardware>
+			<xacro:ros2_control_robotiq_140_gripper name="gripper_" reduction="1"/>
+		</ros2_control> -->
 
 		<!-- Camera mount -->
 		<xacro:camera_mount prefix="arm" parent="arm_flange">
@@ -142,7 +149,7 @@
 		</xacro:camera_mount>
 
 		<!-- Camera on gripper  --> 
-		<!-- had to copy and modidy camera to avoid name clash with robotnik defined sensors -->
+		<!-- had to copy and modify camera to avoid name clash with robotnik defined sensors -->
 		<xacro:sensor_d435_icclab prefix="arm" prefix_topic="summit_xl/arm_camera" parent="arm_camera_mount_link">
      		  <origin xyz="0.0 0.06 0.01" rpy="${PI} ${-PI/2} ${PI/2}"/> <!-- camera on gripper -->
    		</xacro:sensor_d435_icclab> 
