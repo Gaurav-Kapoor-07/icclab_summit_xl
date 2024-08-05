@@ -4,7 +4,7 @@ project(icclab_summit_xl)
 find_package(ament_cmake REQUIRED)
 
 install(
-  DIRECTORY launch worlds config maps robots urdf rviz meshes
+  DIRECTORY launch worlds config maps robots urdf rviz meshes models
   DESTINATION share/${PROJECT_NAME}
 )
 
