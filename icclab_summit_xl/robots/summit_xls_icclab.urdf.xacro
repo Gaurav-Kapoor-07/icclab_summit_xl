@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <robot name="summit_xl" xmlns:xacro="http://wiki.ros.org/xacro">
 
-
 	<!-- ***************** -->
 	<!-- Imported elements -->
 	<!-- ***************** -->

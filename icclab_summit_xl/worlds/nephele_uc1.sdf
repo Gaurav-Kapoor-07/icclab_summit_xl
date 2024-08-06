@@ -319,16 +319,6 @@
           <wrench>0.013596 0.006348 0.00245 0 -0 0</wrench>
         </link>
       </model>
-      <!-- <model name='powerplant'>
-        <pose>82.9249 72.8172 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>82.9249 72.8172 0.01 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model> -->
       <model name='suv'>
         <pose>4.03418 -6.62191 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -1197,56 +1187,6 @@
       <pose>37.5611 -4.9308 0 0 -0 0</pose>
       <self_collide>false</self_collide>
     </model>
-    <!-- <model name='powerplant'>
-      <static>true</static>
-      <link name='link'>
-        <pose>0 0 0.01 0 -0 0</pose>
-        <collision name='wall1'>
-          <geometry>
-            <mesh>
-              <uri>file:///home/ros/rap/ros_gz_ws/install/icclab_summit_xl/share/icclab_summit_xl/worlds/model://powerplant/meshes/powerplant.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual1'>
-          <geometry>
-            <mesh>
-              <uri>file:///home/ros/rap/ros_gz_ws/install/icclab_summit_xl/share/icclab_summit_xl/worlds/model://powerplant/meshes/powerplant.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>false</self_collide>
-        <enable_wind>false</enable_wind>
-        <kinematic>false</kinematic>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-      </link>
-      <pose>82.9249 72.8172 0 0 -0 0</pose>
-      <self_collide>false</self_collide>
-    </model> -->
     <model name='water_tower'>
       <static>true</static>
       <link name='link'>
@@ -1667,7 +1607,7 @@
       <self_collide>false</self_collide>
     </model>
     <model name='low_poly_cargo_container'>
-      <pose>-1.26968 0.102778 0 0 -0 0</pose>
+      <pose>-1.27 13.1 0 0 -0 0</pose>
       <static>false</static>
       <link name='low_poly_cargo_container'>
         <inertial>
@@ -1718,7 +1658,7 @@
       <self_collide>false</self_collide>
     </model>
     <model name='low_poly_cargo_container_0'>
-      <pose>-3 -3.63 0 0 -0 0</pose>
+      <pose>-3 17.37 0 0 -0 0</pose>
       <static>false</static>
       <link name='low_poly_cargo_container'>
         <inertial>
