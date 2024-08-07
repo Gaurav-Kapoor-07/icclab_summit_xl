@@ -116,5 +116,12 @@ def generate_launch_description():
   # )
   # ld.add_action(gripper_controller)
 
+  bridge = launch_ros.actions.Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=['--ros-args', '-p', 'config_file:=$WORKSPACE/icclab_summit_xl/icclab_summit_xl/config/ign_gazebo_bridge.yaml'],
+    )
   
+  ld.add_action(bridge)
+
   return ld
