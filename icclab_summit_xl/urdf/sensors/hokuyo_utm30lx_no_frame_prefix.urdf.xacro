@@ -54,11 +54,11 @@
         <xacro:property name="ray_type" value="ray" />
         <xacro:property name="plugin_lib" value="libignition-gazebo-sensors-system.so" />
       </xacro:unless>
-			<sensor type="${ray_type}" name="${prefix}_sensor">
+			<sensor type="gpu_lidar" name="${prefix}_sensor">
 				<pose>0 0 0 0 0 0</pose>
         <topic>lidar</topic>
 				<update_rate>30</update_rate>
-				<ray>
+				<lidar>
 					<scan>
 						<horizontal>
 							<samples>1081</samples>
@@ -77,8 +77,8 @@
 						<mean>0.0</mean>
 						<stddev>0.01</stddev>
 					</noise>
-				</ray>  
-        <always_on>1</always_on>
+				</lidar>  
+        <always_on>true</always_on>
         <visualize>true</visualize>
 				<plugin name="${prefix}" filename="${plugin_lib}">
           <ros>
@@ -86,7 +86,7 @@
             <remapping>~/out:=~/scan</remapping>
           </ros>
           <output_type>sensor_msgs/LaserScan</output_type>
-					<frame_name>${prefix}_link</frame_name>
+					<gz_frame_id>${prefix}_link</gz_frame_id>
           <render_engine>ogre2</render_engine>
 				</plugin>
 			</sensor>

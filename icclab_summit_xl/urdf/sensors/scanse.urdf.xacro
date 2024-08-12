@@ -54,11 +54,11 @@
 <!-- uses ROS Laser Scanner Controller plugin -->
   <xacro:macro name="sensor_scanse_gazebo">
     <gazebo reference="${prefix}_link">
-      <sensor type="ray" name="${prefix}_sensor">
+      <sensor type="gpu_lidar" name="${prefix}_sensor">
         <pose>0 0 0 0 0 0</pose>
         <visualize>false</visualize>
         <update_rate>30</update_rate>        <!-- 30 -->
-        <ray>
+        <lidar>
           <scan>
             <horizontal>
               <samples>360</samples>
@@ -77,10 +77,10 @@
             <mean>0.0</mean>
             <stddev>0.01</stddev>
           </noise>
-        </ray>
-        <plugin name="${prefix}_controller" filename="libgazebo_ros_laser.so">
-          <topicName>${prefix_topic}</topicName>
-          <frameName>/${prefix}_link</frameName>
+        </lidar>
+        <plugin name="${prefix}_controller" filename="libignition-gazebo-sensors-system.so">
+          <topic>${prefix_topic}</topic>
+          <gz_frame_id>/${prefix}_link</gz_frame_id>
         </plugin>
       </sensor>
     </gazebo>
