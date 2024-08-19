@@ -113,6 +113,10 @@
   <exec_depend>nav2_bringup</exec_depend>
   <exec_depend>realsense2_description</exec_depend>
 
+  <depend>ros_gz_bridge</depend>
+  <depend>ros_gz_image</depend>
+  <depend>ros_gz_sim</depend>
+
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <build_type>ament_cmake</build_type>
