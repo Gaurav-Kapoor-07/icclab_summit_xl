@@ -10,17 +10,17 @@
                             # "GZ_TO_ROS" - Bridge Ignition topic to ROS
                             # "ROS_TO_GZ" - Bridge ROS topic to Ignition
 
-# # rear_laser
-# - ros_topic_name: "/summit/rear_laser/scan"
-#   gz_topic_name: "/ignition/rear_laser/scan"
-#   ros_type_name: "sensor_msgs/msg/LaserScan"
-#   gz_type_name: "ignition.msgs.LaserScan"
-#   subscriber_queue: 5       # Default 10
-#   publisher_queue: 6        # Default 10
-#   lazy: true                # Default "false"
-#   direction: BIDIRECTIONAL  # Default "BIDIRECTIONAL" - Bridge both directions
-#                             # "GZ_TO_ROS" - Bridge Ignition topic to ROS
-#                             # "ROS_TO_GZ" - Bridge ROS topic to Ignition
+# rear_laser
+- ros_topic_name: "/summit/rear_laser/scan"
+  gz_topic_name: "/summit/rear_laser/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "ignition.msgs.LaserScan"
+  subscriber_queue: 10       # Default 10
+  publisher_queue: 10        # Default 10
+  lazy: false                # Default "false"
+  direction: GZ_TO_ROS  # Default "BIDIRECTIONAL" - Bridge both directions
+                            # "GZ_TO_ROS" - Bridge Ignition topic to ROS
+                            # "ROS_TO_GZ" - Bridge ROS topic to Ignition
 
 # # front_rgbd_camera/color
 # - ros_topic_name: "/summit/front_rgbd_camera/color/image_raw"
