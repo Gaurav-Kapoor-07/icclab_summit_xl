@@ -25,7 +25,7 @@
                     <plugin>ign_ros2_control/IgnitionSystem</plugin>
                 </xacro:if>
                 <xacro:if value="${use_fake_hardware}">
-                    <plugin>gazebo_ros2_control/GazeboSystem</plugin> <!-- TOF: was mock_components/GenericSystem-->
+                    <plugin>ign_ros2_control/IgnitionSystem</plugin> <!-- TOF: was mock_components/GenericSystem-->
                     <param name="fake_sensor_commands">${fake_sensor_commands}</param>
                     <param name="state_following_offset">0.0</param>
                 </xacro:if>

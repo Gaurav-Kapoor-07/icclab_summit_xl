@@ -21,7 +21,7 @@ def launch_setup(context, *args, **kwargs):
         root_key=[robot_id],
         convert_types=True,
     )
-
+    
     robot_description_content = launch.substitutions.Command(
         [
             launch.substitutions.PathJoinSubstitution(
@@ -102,27 +102,19 @@ def generate_launch_description():
 
   ld.add_action(OpaqueFunction(function=launch_setup))
 
-  # arm_controller = launch_ros.actions.Node(
-  #   package="controller_manager",
-  #   executable="spawner",
-  #   arguments=["arm_controller", "--controller-manager", ["/", robot_id, "/controller_manager"]],
-  # )
-  # ld.add_action(arm_controller)
+  arm_controller = launch_ros.actions.Node(
+    package="controller_manager",
+    executable="spawner",
+    arguments=["arm_controller", "--controller-manager", ["/", robot_id, "/controller_manager"]],
+  )
+  ld.add_action(arm_controller)
 
-  # gripper_controller = launch_ros.actions.Node(
-  #   package="controller_manager",
-  #   executable="spawner",
-  #   arguments=["robotiq_gripper_controller", "--controller-manager", ["/", robot_id, "/controller_manager"]],
-  # )
-  # ld.add_action(gripper_controller)
-
-  # bridge = launch_ros.actions.Node(
-  #       package='ros_gz_bridge',
-  #       executable='parameter_bridge',
-  #       arguments=['--ros-args', '-p', 'config_file:=$WORKSPACE/icclab_summit_xl/icclab_summit_xl/config/ign_gazebo_bridge.yaml'],
-  #   )
-  
-  # ld.add_action(bridge)
+  gripper_controller = launch_ros.actions.Node(
+    package="controller_manager",
+    executable="spawner",
+    arguments=["robotiq_gripper_controller", "--controller-manager", ["/", robot_id, "/controller_manager"]],
+  )
+  ld.add_action(gripper_controller)
   
   bridge_params = os.path.join(
         get_package_share_directory('icclab_summit_xl'),
